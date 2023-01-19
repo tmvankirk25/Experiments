@@ -30,7 +30,7 @@
         font-weight: 400;
         font-style: italic;
         text-align: right;
-        font-size: 125pt;
+        font-size: 9vw;
         padding-bottom: 60px;
         border-bottom: 4px solid white;
 
@@ -48,7 +48,7 @@
         font-family: bigmoore, serif;
         font-style: italic;
         font-weight: 400;
-        font-size: 125px;
+        font-size: 7vw;
         margin: 0;
         line-height: normal;
         display: inline;
@@ -72,7 +72,7 @@
         font-weight: 300;
         font-style: normal;
         line-height: 1.2em;
-        font-size: 90px;
+        font-size: 5vw;
         text-transform: uppercase;
         text-decoration: none;
         letter-spacing: .06em;
@@ -83,6 +83,7 @@
         max-width: 100%;
         display:block;
         margin-left: auto;
+        width: 400px;
     }
     .image{
         flex-basis: 40%;
@@ -103,6 +104,11 @@
         padding-bottom: 75px;
         padding-left: 67px;
     }
+    .project-heading{
+    flex-basis: 60%;
+   }
+    
+    
     #logo, #topNav {
         float:left;
     }
@@ -120,9 +126,57 @@
     flex-basis: 100%;
     height:0
    }
-   .project-heading{
-    flex-basis: 60%;
+  
+   div{
+    display: block;
    }
+   html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+@media only screen and (max-width: 750px){
+    #canvas {
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 0px;
+        padding-bottom: 20px;
+        text-align: center;
+        } 
+    .title{
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .project-heading{
+        flex-basis: 100%;
+    }
+    .image{
+        align-content: center;
+        flex-basis: 100%;
+        padding-top: 20px;
+    }
+    .content1{
+        justify-content: center;
+        padding-bottom: 35px;
+    }
+    .project-content{
+        font-size: 12px;
+        text-align: left;
+    }
+    img{
+        width: auto;
+    }
+    header{
+        position: sticky;   
+        top: 0;
+        width: inherit;
+        background-color: #222;
+        padding-top :20px;
+        margin: 0 auto;
+    }
+        
+    }
 </style>
 <body style="background-color:#222">
     <div id="canvas">
@@ -145,7 +199,7 @@
                 </div>
         </div>
         <div class="image">
-            <img src="./resources/img/orbsCover.png" alt="orbs" width="400px">
+            <img src="./resources/img/orbsCover.png" alt="orbs" >
         </div>
            
            
