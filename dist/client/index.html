@@ -13,6 +13,9 @@
         cursor: pointer;
         text-decoration: none;
     }
+    a:hover{
+        opacity: 80%;
+    }
     .logo {
         color: white;
         margin: 0;
@@ -24,6 +27,7 @@
         color: #222;
         display: inline-block;
         text-transform: uppercase;
+        animation: changeTextColor 5s;
     }
     .title{
         font-family: bigmoore, serif;
@@ -33,7 +37,13 @@
         font-size: 9vw;
         padding-bottom: 60px;
         border-bottom: 4px solid white;
+        transition: 1.5s;
 
+    }
+    
+    .letter{
+        position: absolute;
+        transition: all 4s linear;
     }
     .content1{
         display: flex;
@@ -84,11 +94,12 @@
         display:block;
         margin-left: auto;
         width: 400px;
+        animation: fadeIn 3s;
     }
     .image{
         flex-basis: 40%;
         align-content: right;
-        padding-top:40px
+        padding-top:56px
     }
     #canvas{
        background-color:#222;
@@ -103,12 +114,25 @@
         padding-right: 75px;
         padding-bottom: 75px;
         padding-left: 67px;
+        animation: changeBGColor 3s;
     }
     .project-heading{
     flex-basis: 60%;
    }
     
-    
+   .playButton{
+    background-color: transparent;
+    font-family: bigmoore, serif;
+    font-size: 20px;
+    font-style: italic;
+    padding: 8px 30px 8px 30px;
+    color: white;
+    border: solid 2px white;
+    cursor: pointer;
+   }
+   .playButton:hover{
+    opacity: 80%;
+   }
     #logo, #topNav {
         float:left;
     }
@@ -134,6 +158,24 @@
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+}
+body{
+    background-color: #222;
+        animation: changeBGColor 3s;
+    } 
+@keyframes fadeIn {
+  0% { opacity: 0;
+        background-color: rgb(255, 255, 255); }
+  100% { opacity: 1; 
+background-color: #222;}
+}
+@keyframes changeTextColor{
+    0%{color: #222;}
+    100%{color: white;}
+}
+@keyframes changeBGColor{
+    0%{background-color: rgb(255, 255, 255)}
+    100%{background-color: #222}
 }
 @media only screen and (max-width: 750px){
     #canvas {
@@ -161,7 +203,6 @@
         padding-bottom: 35px;
     }
     .project-content{
-        font-size: 12px;
         text-align: left;
     }
     img{
@@ -174,8 +215,12 @@
         background-color: #222;
         padding-top :20px;
         margin: 0 auto;
+        animation: changeBGColor 3s;
     }
-        
+    form{
+        margin-bottom: 10px;
+    }
+   
     }
 </style>
 <body style="background-color:#222">
@@ -183,28 +228,54 @@
         <header id="header">
             <div class="logo">
                 <h1 class="logo" data-shrink-original-size="49" style="letter-spacing: 0.0204082em;">
-                    <a href="https://tyler-vankirk.com">Tyler Van Kirk</a></h1>
+                    <a href="https://tyler-vankirk.com" style="animation: changeTextColor 5s;">Tyler Van Kirk</a></h1>
             </div>
         <h1 class="title">Experiments</h1>
         </header>
-    <div class="content1">
-        <div class="project-heading">
-            <h1 class="project-no">01</h1>
-            <h2 class= 'project-title'> 
-                <a href="./EXP01-ORBS/">ORBS</a></h2>
-                <div class="project-content">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                        Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis </p>
-                </div>
+        <div class="content1">
+            <div class="project-heading">
+                <h1 class="project-no">01</h1>
+                <h2 class= 'project-title'> 
+                    <a href="./EXP01-ORBS/" target="_blank">ORBS</a></h2>
+                    <div class="project-content">
+                    <p>Orbs, a work in progress, is an interactive web experience built primarily with ThreeJs where the user interacts and lights up orb/sphere objects. There are rulesets that cause spheres that are within a certain proximity to each other to light up and change speed. The user can rotate pan and zoom allowing them to become immersed within the spheres. As users interact with the spheres there is an ethereal soundtrack and “dink” noises that play when the spheres are lit or interacted with. There is no clear directive, but if the user lights all the spheres a chime noise will play. Other planned events/features are setting timers for the spheres to become unlit requiring the user to reactivate spheres and allowing the user to change speed and quantities of spheres. Although, in its simple state, Orbs still has an alluring presence and invites the user to zone out and explore this unique environment, catching glimpses of unlit spheres and then navigating the darkness to bring them to light. 
+
+                    </p>
+                            
+                    </div>
+                    <a href="./EXP01-ORBS/" target="_blank">
+                        <button class="playButton">Play</button>
+                    </a>
+            </div>
+            <div class="image">
+                <a href="./EXP01-ORBS/" target="_blank"><img src="./resources/img/orbsCover.png" alt="orbs" ></a>
+            </div>
+            
+            
         </div>
-        <div class="image">
-            <img src="./resources/img/orbsCover.png" alt="orbs" >
+        <div class="content1">
+            <div class="project-heading">
+                <h1 class="project-no">02</h1>
+                <h2 class= 'project-title'> 
+                    <a href="./EXP03-BEAMS/" target="_blank">BEAMS</a></h2>
+                    <div class="project-content">
+                    <p>Beams is a web-based 3D scene primarily composed in ThreeJs. The scene consists of a small built area with a dynamic sculpture and user-controlled ceiling of beams. The geometry of the ceiling is driven by modifiable parameters such as beam count, wave count, speed, etc. There are also two different pattern options for the user to choose from. With just a few modifiable variables, the amount of variation and visual appearance of the animated ceiling changes dramatically. In some cases, the beams are moving and rippling with energy, and in others acts like a slow wave suggesting a calm presence for the scene and the surrounding environment. The scene was modeled in Rhino3D and imported for texture mapping in Cinema 4D, and lastly exported from Cinema 4D as gltf format and imported into ThreeJS.
+
+                    </p>
+                            
+                    </div>
+                    <a href="./EXP03-BEAMS/" target="_blank">
+                        <button class="playButton">Play</button>
+                    </a>
+            </div>
+            <div class="image">
+                <a href="./EXP03-BEAMS/" target="_blank"><img src="./resources/img/beamsCover.png" alt="orbs" ></a>
+            </div>
+            
+            
         </div>
-           
-           
-    </div>
    
 </div>
+
 </body>
 </html>

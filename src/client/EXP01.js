@@ -21,13 +21,73 @@ window.addEventListener("load",function(){
   document.getElementById("wrapper").style.opacity=0;
   setTimeout(() => document.getElementById("wrapper").remove(), 1000);
   document.getElementById("prompt").style.opacity=1;
+  if(window.innerWidth>850){
+    tutorialWeb()
+  }
+  else{
+    tutorialMobile()
+  }
+  
   
 });
 
+function tutorialWeb(){
+  document.getElementById('sound').style.border="solid white 2px"
+  document.getElementById('prompt').innerHTML="Toggle sound on/off"
+  setTimeout(function(){document.getElementById('sound').style.border=""
+  document.getElementById('prompt').innerHTML="Adjust brightness until spheres are barely visible"
+  document.getElementById('brightness').style.border="solid white 2px"
+  document.getElementById('brightness').style.opacity=1
+  setTimeout(function(){document.getElementById('brightness').style.border=""
+  document.getElementById('brightness').style.opacity=""
+  document.getElementById('prompt').innerHTML="Left click and drag to rotate"
+  document.addEventListener("click",function(){document.getElementById("prompt").innerHTML="Right click and drag to pan"
+  document.addEventListener("contextmenu",function(){document.getElementById("prompt").innerHTML="Click a sphere to begin"
+  document.addEventListener( 'click', onClick );
+},{once:true})
+},{once:true})
+ 
+},4000)
+},4000)
+
+  
+  
+
+  
+}
+
+function tutorialMobile(){
+  document.getElementById('sound').style.border="solid white 2px"
+  document.getElementById('prompt').innerHTML="Toggle sound on/off"
+  setTimeout(function(){document.getElementById('sound').style.border=""
+  document.getElementById('prompt').innerHTML="Adjust brightness until spheres are barely visible"
+  document.getElementById('brightness').style.border="solid white 2px"
+  document.getElementById('brightness').style.opacity=1
+  setTimeout(function(){document.getElementById('brightness').style.border=""
+  document.getElementById('brightness').style.opacity=""
+  document.getElementById('prompt').innerHTML="Touch and drag to rotate"
+  document.addEventListener("touchstart",function(){document.getElementById("prompt").innerHTML="Two finger touch and drag to pan"
+  document.addEventListener("touchstart",function(){
+      document.getElementById("prompt").innerHTML="Click a sphere to begin"
+      document.addEventListener( 'click', onClick );
+    
+    
+ 
+},{once:true})
+},{once:true})
+ 
+},4000)
+},4000)
+
+  
+  
+
+  
+}
 
 document.getElementById('sound').addEventListener('click',soundFunction)
 document.getElementById('mute').addEventListener('click',soundFunction)
-document.addEventListener( 'click', onClick );
+
 document.getElementById("reset").addEventListener("click",reset)
 document.getElementById('brightness').addEventListener('click',adjustBrightness)
 
@@ -38,13 +98,13 @@ console.log(backgroundTrack)
 
 let track=.40
 function adjustBrightness(){
-  ambientLight.intensity+=.01
+  ambientLight.intensity+=.015
   track+=.20
   console.log(ambientLight.intensity)
   console.log(track)
   document.getElementById('brightness').style.opacity=track
-  if(ambientLight.intensity>.05){
-    ambientLight.intensity=.01
+  if(ambientLight.intensity>.075){
+    ambientLight.intensity=.015
     document.getElementById('brightness').style.opacity=.25
     track=.20
   }
@@ -184,7 +244,7 @@ let index=getRandomArbitrary(0,spheres.length)
 // spheres[index].children[0].intensity=5
 // spheres[index].material.emissiveIntensity=5
 
-let ambientLight= new THREE.AmbientLight ( 0xffffff, .02)
+let ambientLight= new THREE.AmbientLight ( 0xffffff, .03)
 scene.add(ambientLight)
 // let dirLight= new THREE.DirectionalLight( 0xffffff, 1 )
 // let dirLight2= new THREE.DirectionalLight( 0xffffff, 1 )

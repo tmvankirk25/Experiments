@@ -3,6 +3,8 @@ const path = require('path')
 module.exports = {
     entry: {
       'EXP01-ORBS/':  './src/client/EXP01.js',
+      'EXP02-RGBXYZ/': './src/client/EXP02.js',
+      'EXP03-BEAMS/': './src/client/EXP03.js'
     },
     module: {
         rules: [
@@ -16,6 +18,14 @@ module.exports = {
                 }
 
             },
+            {
+                test: /\.png$/,
+                loader: 'file-loader',
+                options:{
+                    name: '[path][name].[ext]',
+                    
+                }
+              }
         ],
     },
     output: {
