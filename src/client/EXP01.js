@@ -337,10 +337,12 @@ function animate() {
             if(sphere.bloom==false){
               sphere.layers.enable(1)
               sphere.material.emissiveIntensity=.1
+
             }
             if(other.bloom==false){
               other.layers.enable(1)
               other.material.emissiveIntensity=.1
+
             }
             
             sphere.bloom=true
@@ -377,6 +379,7 @@ function animate() {
   //console.log(count)
   if(testBool==true){
     successFunction()
+    blinkStep()
   }
   render()
 }
@@ -416,10 +419,36 @@ function restoreMaterial( obj ) {
 let successToggle=true
 function successFunction(){
   if(successToggle==true){
+    blink()
     console.log("all spheres are lit!")
     successAudio.currentTime=0
     successAudio.play()
     successToggle=false
+  }
+}
+
+function blink(){
+  for(const sphere of spheres){
+    sphere.material.emissiveIntensity=Math.random()* (.1- 0)
+    sphere.blink="up"
+  }
+}
+
+function blinkStep(){
+  for(const sphere of spheres){
+    if(sphere.blink=="up"){
+      sphere.material.emissiveIntensity+=.005
+      if(sphere.material.emissiveIntensity>.1){
+        sphere.blink="down"
+    }
+  }
+  if(sphere.blink=="down"){
+    sphere.material.emissiveIntensity-=.005
+    if(sphere.material.emissiveIntensity<0){
+      sphere.material.emissiveIntensity=0
+      sphere.blink="up"
+  }
+}
   }
 }
 
